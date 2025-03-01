@@ -5,11 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon app.js",
-    "test": "jest --coverage"
-  },
-  "jest": {
-    "transform": {}
+    "start": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
