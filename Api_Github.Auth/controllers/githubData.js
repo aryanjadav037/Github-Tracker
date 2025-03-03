@@ -24,7 +24,7 @@ export const getOrganizationRepos = async (req, res) => {
     const octokit = getOctokitInstance(accessToken);
     const { data } = await octokit.rest.repos.listForOrg({ org, per_page: 100 });
 
-    res.json(data);
+    res.json(data).status(200);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -39,7 +39,7 @@ export const getCommits = async (req, res) => {
     const octokit = getOctokitInstance(accessToken);
     const { data } = await octokit.rest.repos.listCommits({ owner: org, repo, per_page: 100 });
 
-    res.json(data);
+    res.json(data).status(200);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -54,7 +54,7 @@ export const getPullRequests = async (req, res) => {
     const octokit = getOctokitInstance(accessToken);
     const { data } = await octokit.rest.pulls.list({ owner: org, repo, per_page: 100 });
 
-    res.json(data);
+    res.json(data).status(200);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -69,7 +69,7 @@ export const getIssues = async (req, res) => {
     const octokit = getOctokitInstance(accessToken);
     const { data } = await octokit.rest.issues.listForRepo({ owner: org, repo, per_page: 100 });
 
-    res.json(data);
+    res.json(data).status(200);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -85,7 +85,7 @@ export const getChangelogs = async (req, res) => {
     const commits = await octokit.rest.repos.listCommits({ owner: org, repo, per_page: 50 });
     const pulls = await octokit.rest.pulls.list({ owner: org, repo, per_page: 50 });
 
-    res.json({ commits: commits.data, pullRequests: pulls.data });
+    res.json({ commits: commits.data, pullRequests: pulls.data }).status(200);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -99,7 +99,7 @@ export const getAuthenticatedUser = async (req, res) => {
     const octokit = getOctokitInstance(accessToken);
     const { data } = await octokit.rest.users.getAuthenticated();
     
-    res.json(data);
+    res.json(data).status(200);
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
