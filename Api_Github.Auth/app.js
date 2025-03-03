@@ -1,7 +1,5 @@
 import express from "express";
 import dotenv from "dotenv";
-import { Octokit } from "octokit";
-import axios from "axios";
 import path from "path";
 import { fileURLToPath } from "url";
 import connectDB from "./helpers/db.js";
@@ -39,4 +37,4 @@ app.get("/", (req, res) => {
     res.send("server on!!!")
 })
 
-app.listen(process.env.PORT)
+export default app; // Export for testing

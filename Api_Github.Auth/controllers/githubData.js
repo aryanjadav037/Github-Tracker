@@ -3,7 +3,7 @@ import { getOctokitInstance } from "../helpers/githubClient.js";
 export const getOrganizations = async (req, res) => {
   try {
     const accessToken = req.cookies.access_Token;
-    console.log(accessToken)
+    // console.log(accessToken)
     if (!accessToken) return res.status(401).json({ error: "Unauthorized" });
 
     const octokit = getOctokitInstance(accessToken);
@@ -104,5 +104,3 @@ export const getAuthenticatedUser = async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 };
-
-
