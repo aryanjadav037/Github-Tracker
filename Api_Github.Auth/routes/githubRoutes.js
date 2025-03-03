@@ -5,8 +5,7 @@ import {
   getCommits,
   getPullRequests,
   getIssues,
-  getChangelogs,
-  getAuthenticatedUser,
+  getChangelogs
 } from "../controllers/githubData.js";
 
 const router = express.Router();
@@ -17,6 +16,5 @@ router.get("/:org/repos/:repo/commits", getCommits);
 router.get("/:org/repos/:repo/pulls", getPullRequests);
 router.get("/:org/repos/:repo/issues", getIssues);
 router.get("/:org/repos/:repo/issues/changelogs", getChangelogs);
-router.get("/users", getAuthenticatedUser);
 
 export default router;
