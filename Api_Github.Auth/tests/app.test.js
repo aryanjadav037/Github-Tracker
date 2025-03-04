@@ -4,7 +4,7 @@ import app from "../app.js";
 
 let server;
 beforeAll(() => {
-  process.env.PORT = 3000;  // Use a different port
+  process.env.PORT = 3003;  // Use a different port
   server = app.listen(process.env.PORT);
 });
 
